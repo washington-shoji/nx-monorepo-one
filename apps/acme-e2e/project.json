@@ -1,22 +1,22 @@
 {
-  "name": "acme-e2e",
+  "name": "svelte-one-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/acme-e2e/src",
+  "sourceRoot": "apps/svelte-one-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/acme-e2e/cypress.config.ts",
-        "devServerTarget": "acme:serve:development",
+        "cypressConfig": "apps/svelte-one-e2e/cypress.config.ts",
+        "devServerTarget": "svelte-one:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "acme:serve:production"
+          "devServerTarget": "svelte-one:serve:production"
         },
         "ci": {
-          "devServerTarget": "acme:serve-static"
+          "devServerTarget": "svelte-one:serve-static"
         }
       }
     },
@@ -24,10 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/acme-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/svelte-one-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["acme"]
+  "implicitDependencies": ["svelte-one"]
 }

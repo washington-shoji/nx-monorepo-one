@@ -1,7 +1,7 @@
 {
-  "name": "acme",
+  "name": "svelte-one",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/acme/src",
+  "sourceRoot": "apps/svelte-one/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/acme"
+        "outputPath": "dist/apps/svelte-one"
       },
       "configurations": {
         "development": {
@@ -24,53 +24,17 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "acme:build"
+        "buildTarget": "svelte-one:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "acme:build:development",
+          "buildTarget": "svelte-one:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "acme:build:production",
+          "buildTarget": "svelte-one:build:production",
           "hmr": false
         }
-      }
-    },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "acme:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "acme:build:development"
-        },
-        "production": {
-          "buildTarget": "acme:build:production"
-        }
-      }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/acme"
-      }
-    },
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/acme/**/*.{ts,tsx,js,jsx}"]
-      }
-    },
-    "serve-static": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "acme:build"
       }
     }
   },

@@ -1,10 +1,16 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/acme',
+  cacheDir: '../../node_modules/.vite/svelte-one',
+
+  resolve: {
+    alias: {
+      '@svelte-one/counter': '/libs/counter/src/index.ts',
+    },
+  },
 
   server: {
     port: 4200,
@@ -16,7 +22,7 @@ export default defineConfig({
     host: 'localhost',
   },
 
-  plugins: [react(), nxViteTsPaths()],
+  plugins: [svelte(), nxViteTsPaths()],
 
   // Uncomment this if you are using workers.
   // worker: {
